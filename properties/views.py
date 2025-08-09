@@ -18,4 +18,5 @@ def property_list(request):
             for prop in properties
         ]
     }
-    return JsonResponse(data)
+    response = JsonResponse(data)  # First create the response object
+    return response  # Then return it
