@@ -5,7 +5,7 @@ from .models import Property
 @cache_page(60 * 15)  # Cache for 15 minutes
 def property_list(request):
     properties = Property.objects.all()
-    data = {
+    return JsonResponse({
         "properties": [
             {
                 "id": prop.id,
@@ -17,6 +17,4 @@ def property_list(request):
             } 
             for prop in properties
         ]
-    }
-    response = JsonResponse(data)  # First create the response object
-    return response  # Then return it
+    })
