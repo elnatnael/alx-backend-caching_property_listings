@@ -55,18 +55,17 @@ DATABASES = {
         'NAME': 'property_db',
         'USER': 'property_user',
         'PASSWORD': 'property_pass',
-        'HOST': 'postgres',
+        'HOST': 'postgres',  # Matches docker-compose service name
         'PORT': '5432',
     }
 }
 
-# Redis Cache
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://redis:6379/0',  # Matches docker-compose service name
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     }
 }
