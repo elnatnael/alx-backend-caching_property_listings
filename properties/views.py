@@ -16,4 +16,6 @@ def property_list(request):
             for property in properties
         ]
     }
-    return JsonResponse(data)
+    return JsonResponse({
+        "data": [property for property in properties.values()]
+    })
